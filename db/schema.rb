@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160604163808) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "identities", "users"
+
   create_table "analyses", force: :cascade do |t|
     t.string   "content_source", null: false
     t.date     "date"
@@ -66,4 +67,5 @@ ActiveRecord::Schema.define(version: 20160604163808) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end
