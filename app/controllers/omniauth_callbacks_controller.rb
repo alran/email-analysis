@@ -2,6 +2,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def google_oauth2
     generic_callback( 'google_oauth2' )
+    binding.pry
   end
 
   def generic_callback( provider )
