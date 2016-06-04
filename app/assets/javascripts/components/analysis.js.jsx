@@ -1,21 +1,38 @@
 var Analysis = React.createClass({
   render: function(){
     return (
-      <div class="row">
-        <div class="col-md-2">.col-md-6</div>
-        <div class="col-md-6">.col-md-6</div>
+      <div>
+      <h3 className="title">Gmail Analysis - 6/17/2020 </h3>
+      <div className="table-cover">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Social Breakdown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">John 20%</a></td>
+              <td><a href="#">Doe 80%</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Jake 80%</a></td>
+              <td><a href="#">Doe 40%</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Chilly 10%</a></td>
+              <td><a href="#">billy 90%</a></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <br/>
+        <br/>
+        <section>
+          <a href="#">Alyssa 80%</a><br/>
+          <a href="#">Analyze by email </a>
+        </section>
       </div>
-      <ul id="test1">
-  <li>01</li>
-  <li>02</li>
-  <li>03</li>
-  <li>04</li>
-  <li>05</li>
-  <li>06</li>
-  <li>07</li>
-</ul>
-
-
     );
   }
 });
