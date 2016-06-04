@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'welcome#index'
 
+  resources :welcome
+
   resources :analyses, only: [:show, :index]
 
   # post 'welcome#watson_tone_analysis'
