@@ -4,4 +4,9 @@ class WelcomeController < ApplicationController
     @user = User.new
   end
 
+  def show
+    binding.pry
+    redirect_to root_path
+  end
+
 end
