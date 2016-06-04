@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :welcome, only: [:index]
   resources :users, only: [:show, :edit, :update]
-  root 'welcome#index'
+  resources :welcome
 
   resources :analyses, only: [:show, :index]
 
