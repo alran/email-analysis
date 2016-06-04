@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :analyses, only: [:show, :index]
 
+  # post 'welcome#watson_tone_analysis'
+
 end
