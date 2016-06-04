@@ -13,13 +13,11 @@ include HTTParty
 
   def text_request
     self.class.get("",:query => query)
-    # deal with fails
   end
 
   def sentiment_response
     res = text_request
-    binding.pry
-    res ? res["aggregate"] : false
+    res.code == 200 ? res["aggregate"] : false
   end
 
 end
