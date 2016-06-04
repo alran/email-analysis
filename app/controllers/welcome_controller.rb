@@ -4,4 +4,10 @@ class WelcomeController < ApplicationController
     # @user = User.new
   end
 
+  def show
+  end
+
+  def binding
+  end
+
 end

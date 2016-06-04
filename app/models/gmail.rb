@@ -2,16 +2,24 @@ class Gmail
 
 include HTTParty
 
-  base_uri "https://www.googleapis.com/gmail/v1/"
+  base_uri "https://www.googleapis.com/gmail/v1"
 
-  attr_accessor :query, :current_response
+  attr_accessor :query, :email
 
-  # http://localhost:3000/venues/search?name=saint%20vitus&latitude=40.736769&longitude=-73.954998 search params for venue
-
-  def initialize(venue_params)
-    @query = venue_params
-    @query["key"] = ENV["GOOGLE_PLACES_KEY"]
-    @current_response = ""
+  def initialize(query, user)
+    @query = query
+    @query["key"] = user.google_oauth2.accesstoken
+    @email = user.google_oauth2.email
   end
+
+  def messages
+    # required params userId
+    transposed = self.email.gsub!("@","%40")
+    binding.pry
+    url = "/users/#{transposed}/messages"
+    res = self.class.get(url, :query => query)
+    binding.pry
+  end
+
 
 end
