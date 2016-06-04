@@ -8,6 +8,18 @@
 </head>
 <body>
 
+<div class="top-bar-right">
+        <ul class="menu" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
+          <% if current_user %>
+          <li class='button'>
+    <%= link_to 'HOME', root_path %>
+  </li>
+  <li class='button'>
+    <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
+  </li>
+          <% end %>
+        </ul>
+      </div>
 <div class='container'>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
