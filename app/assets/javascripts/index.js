@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
 
@@ -115,3 +117,4 @@
   step();
 
 }).call(this);
+});
