@@ -1,0 +1,69 @@
+/*$white: #ffffff;
+$highlight: #6ac9cf;
+$dark: #22292e;
+$light: #EDEFF5;*/
+/* -- Welcome CSS -- */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background: #111;
+  text-align: center;
+}
+.bring-to-front{
+    z-index: 1;
+    position: absolute;
+    left: 18%;
+    top: 35%;
+}
+
+h1{
+  color: #fff;
+  font-size:2.5rem;
+  padding: 25px
+}
+
+h2{
+  font-size: 2rem;
+}
+
+h3{
+  font-size: 1.75rem;
+}
+h4{
+  font-size: 1.375rem;
+}
+h5{
+  font-size: 1.25rem;
+}
+h6{
+  font-size: 1rem;
+}
+
+p, li{
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+#logo{
+  font-size: 5rem;
+  position: relative;
+  paddingtop: 20px;
+  color:#fff;
+  text-decoration: none;
+
+}
+.slogan{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.google-button{
+  color:#000;
+  text-decoration: none;
+  background-color: white;
+  padding: 10px;
+  border-radius: 3px;
+}
