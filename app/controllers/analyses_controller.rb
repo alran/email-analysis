@@ -1,11 +1,18 @@
 class AnalysesController < ApplicationController
 
   def show
-    # @analysis = Analysis.find_by()
+    # @analysis = Analysis.find_by(params)
   end
 
   def index
     # @analyses = Analysis.where(user_id: current_user.id)
+  end
+
+  def watson
+    @analyses = []
+    # take props sent from front end when you click button to get email analysis
+    # choose 20 most recent emails and make call to watson_tone_analysis(content)
+    # create watson objects for each - push into analyses call
   end
 
   private
