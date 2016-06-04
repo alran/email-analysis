@@ -29,7 +29,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin'
-gem 'google-api-client', require: 'google/api_client'
+gem 'google-api-client'
 
 gem 'react-rails'
 
