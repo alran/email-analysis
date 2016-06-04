@@ -1,28 +1,26 @@
-== README
+# { Product Name }
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Our Vision
+To nurture team building by encouraging healthy communication.
 
-Things you may want to cover:
+## Visionaries
 
-* Ruby version
+#### Brian Beir
+https://github.com/brianbier
+https://www.linkedin.com/in/brianbier
 
-* System dependencies
+#### FJ Collins Jr.
+https://github.com/FJunior225
+https://www.linkedin.com/in/fjcollinsjr
 
-* Configuration
+#### Alyssa Ransbury
+https://github.com/alran
+https://www.linkedin.com/in/alyssaransbury
 
-* Database creation
+#### Noah Schutte
+https://github.com/noahschutte
+https://www.linkedin.com/in/noahschutte
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#### Thomas Yancey
+https://github.com/thomas-yancey
+https://www.linkedin.com/in/tomyancey
