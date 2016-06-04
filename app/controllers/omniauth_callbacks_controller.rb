@@ -33,7 +33,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def upgrade
     scope = nil
     if params[:provider] == "google_oauth2"
-      scope = "email,profile,offline,https://www.googleapis.com/auth/admin.directory.user"
+      scope = "email,profile,offline,https://www.googleapis.com/auth/admin.directory.user,https://www.googleapis.com/auth/gmail.readonly"
     end
 
     redirect_to user_omniauth_authorize_path( params[:provider] ), flash: { scope: scope }
