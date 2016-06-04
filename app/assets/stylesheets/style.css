@@ -11,6 +11,10 @@ html, body {
   height: 100%;
   overflow: hidden;
   z-index: -1;
+  /*background: #111;*/
+  text-align: center;
+}
+#world{
   background: #111;
   text-align: center;
 }
