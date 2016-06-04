@@ -27,6 +27,8 @@ gem 'devise'
 
 gem 'react-rails'
 
+gem 'httparty'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
