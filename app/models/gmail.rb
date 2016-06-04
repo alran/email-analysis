@@ -23,7 +23,6 @@ include HTTParty
   def individual_messages_ids
     self.messages.messages.each do |message_thread|
       self.individual_message_request(message_thread.id)
-      binding.pry
     end
   end
 
