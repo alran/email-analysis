@@ -1,3 +1,8 @@
 <div id="background"></div>
 <canvas id="world"></canvas>
-<%= react_component('Homepage') %>
+
+<% if user_signed_in? %>
+  <%= react_component('Homepage', loggedIn: 'true', currentUser: current_user.id) %>
+<% else %>
+  <%= react_component('Homepage', loggedIn: 'false') %>
+<% end %>
