@@ -4,21 +4,21 @@ include HTTParty
 
   base_uri "https://www.googleapis.com/gmail/v1"
 
-  attr_accessor :query, :email
+  attr_accessor :query, :email, :headers
 
   def initialize(query, user)
     @query = query
     @query["key"] = user.google_oauth2.accesstoken
     @email = user.google_oauth2.email
+
   end
 
   def messages
-    # required params userId
-    transposed = self.email.gsub!("@","%40")
-    binding.pry
-    url = "/users/#{transposed}/messages"
-    res = self.class.get(url, :query => query)
-    binding.pry
+    client = Signet::OAuth2::Client.new(access_token: self.query["key"])
+    service = Google::Apis::GmailV1::GmailService.new
+    service.authorization = client
+    res = service.list_user_messages('me')
+    res
   end
 
 

@@ -246,7 +246,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   faker
-  google-api-client
+  google-api-client (~> 0.9)
   httparty (~> 0.13.7)
   jbuilder (~> 2.0)
   jquery-rails
