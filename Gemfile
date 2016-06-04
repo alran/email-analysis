@@ -33,8 +33,6 @@ gem 'google-api-client'
 
 gem 'react-rails'
 
-gem 'httparty'
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
