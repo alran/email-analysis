@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   private
 
   def set_user_category
-     self.user_category ||= "employee"
+     self.category ||= "employee"
   end
 
 end
