@@ -15,9 +15,9 @@
   <div class="overlayer"><!-- Navigation bar -->
   <div class="background-image">
     <header id="main_navigation" class="clearfix">
-      <%= link_to "Empath", user_path(1), class: "name" %>
+      <%= link_to "Empath", user_path(current_user), class: "name" %>
       <nav id="main_nav">
-        <%= link_to "Profile", user_path(1), class: "cool-link" %>
+        <%= link_to "Profile", user_path(current_user), class: "cool-link" %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       </nav>
     </header>
