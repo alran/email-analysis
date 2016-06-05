@@ -60,7 +60,7 @@ include HTTParty
   end
 
   def find_sent_to_user(res)
-    res.payload.headers.each {|val|return val.value if val.name.match(/To/)}
+    res.payload.headers.each {|val|return val.value if val.name == "To"}
   end
 
 

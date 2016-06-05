@@ -2,7 +2,7 @@ class AnalysesController < ApplicationController
 
   def show
     analysis = Analysis.find_by(id: params[:id])
-    emails = Email.where(user_id: current_user.id)
+    emails = Email.where(user_id: analysis.user_id)
     @people = {}
     emails.each do |email|
       recipient = email.sent_to.gsub(/<.+>/, '').strip
@@ -24,6 +24,7 @@ class AnalysesController < ApplicationController
         }
       end
     end
+    binding.pry
     analysis.people_sentiment = @people.to_s
     analysis.save
     @people = @people.to_json
