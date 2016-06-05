@@ -24,7 +24,6 @@ class AnalysesController < ApplicationController
         }
       end
     end
-    binding.pry
     analysis.people_sentiment = @people.to_s
     analysis.save
     @people = @people.to_json

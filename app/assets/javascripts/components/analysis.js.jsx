@@ -1,35 +1,34 @@
 var Analysis = React.createClass({
   getInitialState: function(){
-
-    console.log(Object.keys(JSON.parse(this.props.people)))
     b = JSON.parse(this.props.people)
     a = Object.keys(JSON.parse(this.props.people))[0]
-    console.log(b[a])
     return {chosenUser: b[a]};
   },
   chooseUser: function(user){
-    console.log('2')
-    console.log(this)
-    // this.setState({
-    //   chosenUser: user
-    // })
+    this.setState({
+      chosenUser: user
+    })
   },
   showUserDetails: function(){
-    console.log('3')
     var user = this.state.chosenUser
-    console.log(user)
-    var people = JSON.parse(this.props.people)[0]
-    console.log(people)
+    var people = JSON.parse(this.props.people)
     return (
       <section>
-        <h3>{user.name} - {user.sentiment_score} {user.sentiment}</h3><br/>
+        <h3>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h3><br/>
         <a href="#">Analyze by email </a>
       </section>
     )
   },
   render: function(){
-    console.log('4')
     var people = JSON.parse(this.props.people)
+    var self = this
+    var keys = Object.keys(people)
+    var counter = 0
+    var peopleButtons = keys.map(function(key){
+      var user = people[key]
+      counter = counter += 1
+      return (<UserButton user={user} chooseUser={self.chooseUser} key={counter}></UserButton>)
+    })
     var today = new Date().toJSON().slice(0,10)
     return (
       <div>
@@ -43,16 +42,7 @@ var Analysis = React.createClass({
           </thead>
           <tbody>
             <tr>
-              <td><a href="#" onClick={this.chooseUser}>John 20%</a></td>
-              <td><a href="#">Doe 80%</a></td>
-            </tr>
-            <tr>
-              <td><a href="#">Jake 80%</a></td>
-              <td><a href="#">Doe 40%</a></td>
-            </tr>
-            <tr>
-              <td><a href="#">Chilly 10%</a></td>
-              <td><a href="#">billy 90%</a></td>
+              {peopleButtons}
             </tr>
           </tbody>
         </table>
@@ -60,11 +50,21 @@ var Analysis = React.createClass({
         <br/>
         <br/>
         {this.showUserDetails()}
-
-
       </div>
     );
   }
 
 
 });
+
+var UserButton = React.createClass({
+  chooseUser: function(){
+    this.props.chooseUser(this.props.user)
+  },
+  render: function(){
+    var user = this.props.user
+    return (
+      <td><a href="#" onClick={this.chooseUser}>{user.name} {user.sentiment_score}</a></td>
+    )
+  }
+})
