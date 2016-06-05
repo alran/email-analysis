@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20160604223634) do
     t.string   "google_id"
     t.string   "sent_by"
     t.string   "sentiment"
-    t.integer  "sentiment_score"
-    t.integer  "user_id",         null: false
+    t.decimal  "sentiment_score", precision: 7
+    t.integer  "user_id",                       null: false
     t.date     "sent_date"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "identities", force: :cascade do |t|
