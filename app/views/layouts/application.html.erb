@@ -11,13 +11,29 @@
 
 <body>
 
-  <nav></nav>
+  <div class="overlayer"><!-- Navigation bar -->
+  <div class="background-image">
+    <header id="main_navigation" class="clearfix">
+      <%= link_to "Nuke", user_path, class: "name" %>
+      <nav id="main_nav">
+        <%= link_to "Profile", user_path, class: "cool-link" %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      </nav>
+    </header>
+    <p class="slogan slogan_padding"></p>
+  </div>
+</div><!-- End of Navigation Bar-->
 
   <div id='content-container'>
     <p class="notification" id="notice"><%= notice %></p>
     <p class="notification" id="alert"><%= alert %></p>
   </div>
 
+  <% if notice %>
+  <p class="notice"><%= notice %></p>
+  <% elsif alert %>
+  <p class="alert"><%= alert %></p>
+  <% end %>
   <%= yield %>
 </body>
 </html>
