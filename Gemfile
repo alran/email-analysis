@@ -33,7 +33,7 @@ gem 'omniauth-linkedin'
 gem 'google-api-client', '~> 0.9', require: 'google/apis/gmail_v1'
 
 gem 'react-rails'
-
+gem 'rails_12factor'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
