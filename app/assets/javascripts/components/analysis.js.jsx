@@ -1,4 +1,5 @@
 var Analysis = React.createClass({
+<<<<<<< 258ac2d9fc3e6d39f53e0ca84059ece4afc02322
   getInitialState: function(){
     b = JSON.parse(this.props.people)
     a = Object.keys(JSON.parse(this.props.people))[0]
@@ -32,7 +33,8 @@ var Analysis = React.createClass({
     var today = new Date().toJSON().slice(0,10)
     return (
       <div>
-      <h3 className="title">Gmail Analysis - {today} </h3>
+      {/*{today}*/}
+      <h3 className="title">Gmail Analysis - 05/55/29390 </h3>
       <div className="table-cover">
         <table className="table">
           <thead>
@@ -53,6 +55,7 @@ var Analysis = React.createClass({
       </div>
     );
   }
+
 
 
 });
