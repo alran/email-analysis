@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :identities
   has_many :emails
+  has_many :analyses
   belongs_to :company
 
   before_save :set_user_category
