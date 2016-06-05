@@ -32,9 +32,12 @@ class AnalysesController < ApplicationController
 
   def watson
     @analyses = []
-    # take props sent from front end when you click button to get email analysis
-    # choose 20 most recent emails and make call to watson_tone_analysis(content)
-    # create watson objects for each - push into analyses call
+    receiver = # prop sent from front end - clicked by user
+    emails = Email.where(sent_to: receiver)
+      # choose 20 most recent emails and make call to watson_tone_analysis(content)
+    email_content = emails.map { |email| email.content }
+      # create watson objects for each - push into analyses call
+    watson_tone_analysis(email_content)
   end
 
   private
