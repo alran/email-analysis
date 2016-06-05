@@ -1,6 +1,7 @@
 class AnalysesController < ApplicationController
 
   def show
+    analysis = Analysis.find_by(id: params[:id])
     emails = Email.find_by(user_id: current_user.id)
     @people = {}
     emails.each do |email|
@@ -12,12 +13,15 @@ class AnalysesController < ApplicationController
         @people[recipient][num_scores] = @people[recipient][num_scores] + 1
       else
         @people[recipient] = {
+          name: recipient,
           sentiment: sentiment,
           sentiment_score: sentiment_score,
           num_scores: 1
         }
       end
     end
+    analysis.people_sentiment = @people.to_s
+    analysis.save
     @people.to_json
   end
 
