@@ -1,10 +1,13 @@
 # Empath
 ###Built for AngelHack Manhattan 2016
 [Live Link][rails]
-[rails]: www.empath-app.com
+[rails]: https://blooming-tor-80822.herokuapp.com/
 
 [Video Demo][video]
-[video]: http://www.youtube.com
+[video]: https://www.youtube.com/watch?v=j8-Q-nyyoHc
+
+[Hackathon.io Profile][profile]
+[profile]: http://www.hackathon.io/projects/11005
 
 
 Empath is a B2B software as a service. We provide a management tool to analyze email communication across teams within an organization. Content is assessed and assigned a sentiment rating via HPE Haven's Sentiment Analysis API. Low sentiment ratings are flagged as exhibiting poor communication habits.
