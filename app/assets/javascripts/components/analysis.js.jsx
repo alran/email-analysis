@@ -57,16 +57,22 @@ var Watson = React.createClass({
           </thead>
           <tbody>
             <tr>
-              <td><a href="#">John 20%</a></td>
-              <td><a href="#">Doe 80%</a></td>
+              <td><a href="#">5/3/30</a></td>
+              <td><a href="#">Sad</a></td>
+              <td><a href="#">Behavior</a></td>
+              <td><a href="#">Aggressive</a></td>
             </tr>
             <tr>
-              <td><a href="#">Jake 80%</a></td>
-              <td><a href="#">Doe 40%</a></td>
+            <td><a href="#">5/3/30</a></td>
+            <td><a href="#">Sad</a></td>
+            <td><a href="#">Behavior</a></td>
+            <td><a href="#">Aggressive</a></td>
             </tr>
             <tr>
-              <td><a href="#">Chilly 10%</a></td>
-              <td><a href="#">billy 90%</a></td>
+            <td><a href="#">5/3/30</a></td>
+            <td><a href="#">Sad</a></td>
+            <td><a href="#">Behavior</a></td>
+            <td><a href="#">Aggressive</a></td>
             </tr>
           </tbody>
         </table>
