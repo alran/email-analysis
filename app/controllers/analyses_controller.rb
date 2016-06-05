@@ -26,6 +26,7 @@ class AnalysesController < ApplicationController
     end
     analysis.people_sentiment = @people.to_s
     analysis.save
+    binding.pry
     @people = @people.to_json
   end
 
@@ -38,12 +39,15 @@ class AnalysesController < ApplicationController
 
   private
 
-  def watson_tone_analysis(content)
-    analysis = get_watson_tone_analysis(content) # analysis also has sentence by sentence breakdown. can be used later
-    document_emotions = analysis["document_tone"]["tone_categories"][0]
-    document_tone = analysis["document_tone"]["tone_categories"][1]
-    document_behavior_traits = analysis["document_tone"]["tone_categories"][2]
-    number_sentences = analysis["sentences_tone"].length
+  def watson_tone_analysis(contents)
+    contents.each do |content|
+      analysis = get_watson_tone_analysis(content) # analysis also has sentence by sentence breakdown. can be used later
+      binding.pry
+      document_emotions = analysis["document_tone"]["tone_categories"][0]
+      document_tone = analysis["document_tone"]["tone_categories"][1]
+      document_behavior_traits = analysis["document_tone"]["tone_categories"][2]
+      number_sentences = analysis["sentences_tone"].length
+    end
   end
 
   def get_watson_tone_analysis(content)
