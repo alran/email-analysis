@@ -12,7 +12,14 @@ body{
   background: $highlight;
   z-index: 999;
 }
-p {
+.alert {
+  color:$white;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 1.5rem 0;
+}
+.notice {
   color:$white;
   font-weight: 700;
   text-align: center;
@@ -81,10 +88,16 @@ h1 {
   outline: none;
   border:none;
   display: inline-block;
-  min-width: 8.5rem;
+  min-width: 6.5rem;
 }
 
 .button_highlight{
   background: $highlight;
   transition: background .4s ease-in-out;
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  &:hover{
+    background: darken($highlight, 8.5%);
+    transform: translate(1px, -1px) scale(1.1);
+  }
 }

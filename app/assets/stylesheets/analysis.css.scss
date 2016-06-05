@@ -40,7 +40,7 @@ li{
   border-bottom: 1px solid lighten($dark, 75%);
   margin-bottom: 2rem;
 }
-.episode_thumbnail {
+.image_thumbnail {
   width: 22%;
   float: left;
 }
@@ -48,4 +48,38 @@ img{
   width: 10rem;
   max-width: 100%;
   border-radius: .35rem;
+}
+.user_overview {
+  width: 76.5%;
+  float: left;
+  margin-left: 1.5%;
+}
+h2{
+    color: $dark;
+}
+.description{
+  color: lighten($dark, 25%);
+}
+.button_email{
+  color: $white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  outline: none;
+  border:none;
+  display: inline-block;
+  min-width: 6.5rem;
+}
+.button_message{
+  background: $highlight;
+  transition: background .4s ease-in-out;
+  box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  &:hover{
+    background: darken($highlight, 8.5%);
+    box-shadow: 0px 27px 15px -15px rgba(0,0,0,0.2);
+    transform: translate(1px, -1px) scale(1.1);
+  }
 }
