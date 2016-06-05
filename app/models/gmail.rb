@@ -24,15 +24,26 @@ include HTTParty
 
   def individual_messages_ids
     self.messages.messages.each do |message_thread|
+      next if Email.find_by(google_id: message_thread.id)
       res = self.individual_message_request(message_thread.id)
       sent_to = self.find_sent_to_user(res)
       content = self.find_email_content(res)
-      Email.create(user_id: @current_user_id, sent_to: sent_to, sent_by: @current_user_email, content: content)
+
+      email = Email.new(user_id: @current_user_id, sent_to: sent_to, sent_by: @current_user_email, content: content, google_id: message_thread.id)
+      email.save
+      if email.content
+        analysis = Hpehaven.new({text: email.content})
+        sentiment = analysis.sentiment_response
+        if sentiment
+          score = sentiment["score"] * 100
+          email.update_attributes(sentiment: sentiment["sentiment"], sentiment_score: score )
+        end
+      end
     end
   end
 
   def find_email_content(res)
-    if res.payload.parts.first.body.data
+    if res.payload.parts && res.payload.parts.first.body.data
       string = res.payload.parts.first.body.data.gsub(/\s+/," ")
       string.match(REGEX4||REGEX3||REGEX2||REGEX)
     elsif res.payload.body && res.payload.body.data
