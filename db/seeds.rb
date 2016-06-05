@@ -1,4 +1,4 @@
 companies = Company.create([
-  {name: Faker::Company.name},
-  {name: Faker::Company.name}
+  {name: "Pied Piper"},
+  {name: "Post Mates"}
   ])
