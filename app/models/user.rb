@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :identities
 
+  before_save :set_user_category
+
   def google_oauth2
     identities.where( :provider => "google_oauth2" ).first
   end
@@ -18,4 +20,11 @@ class User < ActiveRecord::Base
     end
     @google_oauth2_client
   end
+
+  private
+
+  def set_user_category
+     self.user_category ||= "employee"
+  end
+
 end
