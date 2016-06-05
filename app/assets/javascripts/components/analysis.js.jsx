@@ -61,6 +61,7 @@ var Analysis = React.createClass({
         <br/>
         {this.showUserDetails()}
 
+
       </div>
     );
   }

@@ -5,19 +5,21 @@ var UserShow = React.createClass({
     analyses = JSON.parse(this.props.analyses)
     image = JSON.parse(this.props.image)
     return (
-      <div id="content" className="clearfix">
-      <section id="left">
-        <div id="userStats" className="clearfix">
-          <div className="pic">
-            <a href="#"><img src={image} width="150" height="150" /></a>
-          </div>
-          <div className="data">
-            <h1>{user.name}</h1>
-            <h3>{user.category[0].toUpperCase() + user.category.slice(1)}, {company.name}</h3>
-            <a href="/emails/{user.id}">Click Here to Analyze Emails</a>
-          </div>
-        </div>
-      </section>
+    <div className="profile">
+      <div className="wrapper_skinny">
+        <ul className="clearfix">
+          <li className="clearfix">
+            <div className="image_thumbnail">
+              <a href="#"><img src={image} width="150" height="150" /></a>
+            </div>
+            <div className="user_overview">
+              <h2>{user.name}</h2>
+              <p className="description" >{user.category[0].toUpperCase() + user.category.slice(1)}, {company.name}</p>
+              <a className="button_message button_email" href="/emails/get_emails">Analyze Emails</a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     );
   }
