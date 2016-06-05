@@ -11,6 +11,7 @@
 
 <body>
 
+<% if user_signed_in? %>
   <div class="overlayer"><!-- Navigation bar -->
   <div class="background-image">
     <header id="main_navigation" class="clearfix">
@@ -23,6 +24,7 @@
     <p class="slogan slogan_padding"></p>
   </div>
 </div><!-- End of Navigation Bar-->
+<% end %>
 
   <div id='content-container'>
     <p class="notification" id="notice"><%= notice %></p>
