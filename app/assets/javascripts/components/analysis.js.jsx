@@ -9,14 +9,34 @@ var Analysis = React.createClass({
       chosenUser: user
     })
   },
+  handleSubmit: function(e){
+    e.preventDefault();
+    var url = '/analyses/watson'
+    debugger;
+    var content = this.state.chosenUser
+    if (!content){
+      return;
+    }
+    $.ajax({
+      url: url,
+      type: 'POST',
+      dataType: 'json',
+      data: content,
+      success: function(response){
+        this.props.onUpdate(response);
+      }.bind(this),
+      error: function(xhr,status,err){
+        //add error handling
+      }.bind(this)
+    });
+  },
   showUserDetails: function(){
     var user = this.state.chosenUser
     var people = JSON.parse(this.props.people)
     return (
       <div className="analysis_overview">
-
-        <h2>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h2><br/>
-        <a className="button_message button_email" href="#">Click for Deeper Email Analysis</a>
+        <h3>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h3><br/>
+        <a className="button_message button_email" onClick={this.handleSubmit} href="/analyses/watson">Click for Deeper Email Analysis </a>
       </div>
     )
   },
@@ -60,7 +80,7 @@ var Analysis = React.createClass({
         <th className="text-center" colSpan="2">Social Breakdown</th>
         </tr>
         </thead>
-        <tbody className="table-hover ">
+        <tbody className="table-hover">
           <tr>
             {peopleButtons1}
           </tr>
@@ -79,6 +99,7 @@ var Analysis = React.createClass({
         <br/>
         <br/>
         {this.showUserDetails()}
+
       </div>
     );
   }
