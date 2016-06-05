@@ -1,12 +1,24 @@
 class AnalysesController < ApplicationController
 
   def show
-    @emails = Email.find_by(user_id: current_user.id)
-    @analysis = Analysis.find_by(params)
-  end
-
-  def index
-    # @analyses = Analysis.where(user_id: current_user.id)
+    emails = Email.find_by(user_id: current_user.id)
+    @people = {}
+    emails.each do |email|
+      recipient = email.sent_to
+      sentiment = email.sentiment
+      sentiment_score = email.sentiment_score
+      if @people[recipient]
+        @people[recipient][sentiment_score] = (@people[recipient][sentiment_score] + sentiment_score) / 2
+        @people[recipient][num_scores] = @people[recipient][num_scores] + 1
+      else
+        @people[recipient] = {
+          sentiment: sentiment,
+          sentiment_score: sentiment_score,
+          num_scores: 1
+        }
+      end
+    end
+    @people.to_json
   end
 
   def watson
