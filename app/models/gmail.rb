@@ -32,8 +32,9 @@ include HTTParty
   def find_email_content(res)
     if res.payload.parts && res.payload.parts.first.body.data
       string = res.payload.parts.first.body.data.gsub(/\s+/," ")
-    elsif res.payload.
       string.match(REGEX2||REGEX)
+    elsif res.payload.body && res.payload.body.data
+      string = res.payload.body.data.gsub(/\s+/," ")
     else
       nil
     end
