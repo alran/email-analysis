@@ -1,5 +1,4 @@
 var Analysis = React.createClass({
-<<<<<<< 258ac2d9fc3e6d39f53e0ca84059ece4afc02322
   getInitialState: function(){
     b = JSON.parse(this.props.people)
     a = Object.keys(JSON.parse(this.props.people))[0]
@@ -25,18 +24,34 @@ var Analysis = React.createClass({
     var self = this
     var keys = Object.keys(people)
     var counter = 0
-    var peopleButtons = keys.map(function(key){
+    var numRows = 5
+    var peopleButtons1 = keys.slice(0,numRows).map(function(key){
       var user = people[key]
       counter = counter += 1
-      return (<UserButton user={user} chooseUser={self.chooseUser} key={counter}></UserButton>)
+      return (<UserButton user={user} chooseUser={self.chooseUser} numRows={numRows} counter={counter} key={counter}></UserButton>)
+    })
+    var peopleButtons2 = keys.slice(numRows,numRows*2).map(function(key){
+      var user = people[key]
+      counter = counter += 1
+      return (<UserButton user={user} chooseUser={self.chooseUser} numRows={numRows} counter={counter} key={counter}></UserButton>)
+    })
+    var peopleButtons3 = keys.slice(numRows*2,numRows*3).map(function(key){
+      var user = people[key]
+      counter = counter += 1
+      return (<UserButton user={user} chooseUser={self.chooseUser} numRows={numRows} counter={counter} key={counter}></UserButton>)
+    })
+    var peopleButtons4 = keys.slice(numRows*3,numRows*4).map(function(key){
+      var user = people[key]
+      counter = counter += 1
+      return (<UserButton user={user} chooseUser={self.chooseUser} numRows={numRows} counter={counter} key={counter}></UserButton>)
     })
     var today = new Date().toJSON().slice(0,10)
+    console.log(numRows)
     return (
       <div>
       <div className="table-cover">
       <div class="table-title">
-      {/*{today}*/}
-        <h3 className="title">Gmail Analysis - 05/55/29390 </h3>
+        <h3 className="title">Gmail Analysis - {today} </h3>
       </div>
         <table class="table-fill">
         <thead>
@@ -46,19 +61,17 @@ var Analysis = React.createClass({
         </thead>
         <tbody class="table-hover">
           <tr>
-          {/*{peopleButtons}*/}
-          {/*Alyssa, I wasnt sure what this peopluButton is doing.*/}
-            <td><a href="#" onClick={this.chooseUser}>John 20%</a></td>
-            <td><a href="#">Doe Bier 80%</a></td>
-            </tr>
-            <tr>
-            <td><a href="#">Jake Anis 80%</a></td>
-            <td><a href="#">Doe Foo 40%</a></td>
-            </tr>
-            <tr>
-            <td><a href="#">Chilly Pepper 10%</a></td>
-            <td><a href="#">billy Silly 90%</a></td>
-            </tr>
+            {peopleButtons1}
+          </tr>
+          <tr>
+            {peopleButtons2}
+          </tr>
+          <tr>
+            {peopleButtons3}
+          </tr>
+          <tr>
+            {peopleButtons4}
+          </tr>
         </tbody>
         </table>
       </div>
@@ -77,8 +90,8 @@ var UserButton = React.createClass({
   },
   render: function(){
     var user = this.props.user
-    return (
-      <td><a href="#" onClick={this.chooseUser}>{user.name} {user.sentiment_score}</a></td>
-    )
+      return (
+        <td><a href="#" onClick={this.chooseUser}>{user.name} {user.sentiment_score}%</a></td>
+      )
   }
 })
