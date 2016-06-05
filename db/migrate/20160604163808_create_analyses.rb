@@ -4,6 +4,7 @@ class CreateAnalyses < ActiveRecord::Migration
       t.string :content_source, null: false
       t.date :date
       t.belongs_to :user, index: true
+      t.string :people_sentiment
 
       t.timestamps null: false
     end
