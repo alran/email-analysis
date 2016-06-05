@@ -1,9 +1,11 @@
 var Analysis = React.createClass({
   render: function(){
     var people = JSON.parse(this.props.people)
+    var today = new Date().toJSON().slice(0,10)
+    console.log(people)
     return (
       <div>
-      <h3 className="title">Gmail Analysis - 6/17/2020 </h3>
+      <h3 className="title">Gmail Analysis - {today} </h3>
       <div className="table-cover">
         <table className="table">
           <thead>
