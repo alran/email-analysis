@@ -6,22 +6,24 @@ include HTTParty
 
   attr_accessor :query
 
-  def initialize(query={q: "in:sent", "max_results": 20}, user)
+  def initialize(user)
     client = Signet::OAuth2::Client.new(access_token: user.google_oauth2.accesstoken)
     @service = Google::Apis::GmailV1::GmailService.new
     @service.authorization = client
     @current_user_email = user.google_oauth2.email
-    @query = query
+    @current_user_id = user.google_oauth2.id
   end
 
   def messages
-    @service.list_user_messages('me')
+    @service.list_user_messages('me',{"q": "in:sent", "max_results": 3})
+    binding.pry
   end
 
   def individual_messages_ids
     self.messages.messages.each do |message_thread|
       res = self.individual_message_request(message_thread.id)
-      # sent_to = self.find_sent_to_user(res)
+      sent_to = self.find_sent_to_user(res)
+      Email.create(user_id: @current_user_id, sent_to: sent_to, sent_by: @current_user_email)
     end
   end
 
@@ -30,7 +32,7 @@ include HTTParty
   end
 
   def find_sent_to_user(res)
-    res.payload.headers.each {return val.name if val.name.match(/To/)}
+    res.payload.headers.each {|val|return val.value if val.name.match(/To/)}
   end
 
 
