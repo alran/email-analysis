@@ -10,12 +10,12 @@ var Analysis = React.createClass({
     })
   },
   showUserDetails: function(){
-    // var user = this.state.chosenUser
-    // var people = JSON.parse(this.props.people)
+    var user = this.state.chosenUser
+    var people = JSON.parse(this.props.people)
     return (
       <div className="analysis_overview">
-      {/*{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}*/}
-        <h2>Brian Bier 8</h2><br/>
+
+        <h2>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h2><br/>
         <a className="button_message button_email" href="#">Analyze by email </a>
       </div>
     )
@@ -60,7 +60,7 @@ var Analysis = React.createClass({
         <th className="text-center" colSpan="2">Social Breakdown</th>
         </tr>
         </thead>
-        <tbody className="table-hover">
+        <tbody className="table-hover ">
           <tr>
             {peopleButtons1}
           </tr>

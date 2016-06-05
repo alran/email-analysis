@@ -215,7 +215,10 @@ td.text-right {
 
 .analysis_overview {
   // width: 76.5%;
-text-align: center;
+  border: 2px solid $dark;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 10rem;
   // margin-left: 1.5%;
 }
 h2{

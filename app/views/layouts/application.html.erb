@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1"
 </head>
 
 <body>
@@ -14,7 +15,7 @@
   <div class="overlayer"><!-- Navigation bar -->
   <div class="background-image">
     <header id="main_navigation" class="clearfix">
-      <%= link_to "Nuke", user_path(1), class: "name" %>
+      <%= link_to "Empath", user_path(1), class: "name" %>
       <nav id="main_nav">
         <%= link_to "Profile", user_path(1), class: "cool-link" %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
@@ -24,6 +25,7 @@
   </div>
 </div><!-- End of Navigation Bar-->
 <% end %>
+
   <% if alert %>
   <div id="notice_wrapper">
     <p class="alert"><%= alert %></p>
@@ -34,5 +36,13 @@
   </div>
   <% end %>
   <%= yield %>
+
+  <script>
+    setTimeout(function(){
+    $("#notice_wrapper").fadeOut('slow',function() {
+        $(this).remove();
+      });
+    },1000);
+  </script>
 </body>
 </html>
