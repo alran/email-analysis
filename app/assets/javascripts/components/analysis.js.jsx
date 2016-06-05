@@ -18,10 +18,10 @@ var Analysis = React.createClass({
     var user = this.state.chosenUser
     var people = JSON.parse(this.props.people)
     return (
-      <section>
-        <h3>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h3><br/>
+      <div className="analysis_overview">
+        <h2>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h2><br/>
         <a className="button_message button_email" href="analyses/get_watson" onClick={this.clinkLink}>Analyze by email </a>
-      </section>
+      </div>
     )
   },
   render: function(){
@@ -53,18 +53,18 @@ var Analysis = React.createClass({
     var today = new Date().toJSON().slice(0,10)
     console.log(numRows)
     return (
-      <div>
+      <div className="wrapper_skinny">
       <div className="table-cover">
       <div class="table-title">
-        <h3 className="title">Gmail Analysis - {today} </h3>
+        <h3 className="title">Gmail Analysis <br /> {today} </h3>
       </div>
-        <table class="table-fill">
+        <table className="table-fill">
         <thead>
         <tr>
-        <th className="text-left" colSpan="2">Social Breakdown</th>
+        <th className="text-center" colSpan="2">Social Breakdown</th>
         </tr>
         </thead>
-        <tbody class="table-hover">
+        <tbody className="table-hover ">
           <tr>
             {peopleButtons1}
           </tr>
