@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 20160604223634) do
   enable_extension "plpgsql"
 
   create_table "analyses", force: :cascade do |t|
-    t.string   "content_source", null: false
+    t.string   "content_source",   null: false
     t.date     "date"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "people_sentiment"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "analyses", ["user_id"], name: "index_analyses_on_user_id", using: :btree
