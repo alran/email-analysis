@@ -7,7 +7,6 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    binding.pry
     redirect_to root_path
   end
 
