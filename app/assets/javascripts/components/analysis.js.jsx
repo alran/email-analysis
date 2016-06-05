@@ -15,8 +15,8 @@ var Analysis = React.createClass({
     })
   },
   showUserDetails: function(){
-    var user = this.state.chosenUser
-    var people = JSON.parse(this.props.people)
+    // var user = this.state.chosenUser
+    // var people = JSON.parse(this.props.people)
     return (
       <div className="analysis_overview">
         <h2>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h2><br/>
@@ -64,7 +64,11 @@ var Analysis = React.createClass({
         <th className="text-center" colSpan="2">Social Breakdown</th>
         </tr>
         </thead>
+<<<<<<< 4b8565d8c582f5feea4fb58ad1d3e9f83b674dab
         <tbody className="table-hover ">
+=======
+        <tbody className="table-hover">
+>>>>>>> merge brain's style to analysis.jsx
           <tr>
             {peopleButtons1}
           </tr>
