@@ -11,7 +11,7 @@ var Analysis = React.createClass({
   },
   handleSubmit: function(e){
     e.preventDefault();
-    var url = '/analyses'
+    var url = '/analyses/watson'
     debugger;
     var content = this.state.chosenUser
     if (!content){

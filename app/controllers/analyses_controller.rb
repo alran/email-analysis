@@ -1,5 +1,17 @@
 class AnalysesController < ApplicationController
 
+  def watson
+    @analyses = []
+    receiver = response.request.params[:email]
+    emails = Email.where(user_id: current_user.id, sent_to: receiver)
+    emails.each do |email|
+      content = email.content
+      binding.pry
+      @analyses << watson_tone_analysis(content)
+    end
+    binding.pry
+  end
+
   def show
     analysis = Analysis.find_by(id: params[:id])
     emails = Email.where(user_id: analysis.user_id)
@@ -31,19 +43,10 @@ class AnalysesController < ApplicationController
     @people = @people.to_json
   end
 
-  def watson
-    @analyses = []
-    receiver = response.request.params[:email]
-    emails = Email.where(user_id: current_user.id, sent_to: receiver)
-    emails.each do |email|
-      @analyses << watson_tone_analysis(email.content)
-    end
-    binding.pry
-  end
 
   private
 
-  def watson_tone_analysis(contents)
+  def watson_tone_analysis(content)
     analysis = get_watson_tone_analysis(content) # analysis also has sentence by sentence breakdown. can be used later
     document_emotions = analysis["document_tone"]["tone_categories"][0]
     document_tone = analysis["document_tone"]["tone_categories"][1]
