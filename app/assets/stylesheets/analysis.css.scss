@@ -20,3 +20,32 @@
 //   -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
 //   box-shadow:         3px 3px 5px 6px #ccc;
 // }
+#profile{
+  padding: 1rem 0;
+}
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after{
+  clear: both;
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+li{
+  padding-bottom: 2rem;
+  border-bottom: 1px solid lighten($dark, 75%);
+  margin-bottom: 2rem;
+}
+.episode_thumbnail {
+  width: 22%;
+  float: left;
+}
+img{
+  width: 10rem;
+  max-width: 100%;
+  border-radius: .35rem;
+}
