@@ -35,7 +35,8 @@ include HTTParty
         analysis = Hpehaven.new({text: email.content})
         sentiment = analysis.sentiment_response
         if sentiment
-          email.update_attributes(sentiment: sentiment["sentiment"], sentiment_score: sentiment["score"])
+          score = sentiment["score"] * 100
+          email.update_attributes(sentiment: sentiment["sentiment"], sentiment_score: score )
         end
       end
     end

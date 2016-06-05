@@ -14,7 +14,7 @@ var UserShow = React.createClass({
           <div className="data">
             <h1>{user.name}</h1>
             <h3>{user.category[0].toUpperCase() + user.category.slice(1)}, {company.name}</h3>
-            <a href="/emails/get_emails">Click Here to Analyze Emails</a>
+            <a href="/emails/{user.id}">Click Here to Analyze Emails</a>
           </div>
         </div>
       </section>
