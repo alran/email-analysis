@@ -1,4 +1,5 @@
 var Analysis = React.createClass({
+<<<<<<< 258ac2d9fc3e6d39f53e0ca84059ece4afc02322
   getInitialState: function(){
     b = JSON.parse(this.props.people)
     a = Object.keys(JSON.parse(this.props.people))[0]
@@ -32,28 +33,41 @@ var Analysis = React.createClass({
     var today = new Date().toJSON().slice(0,10)
     return (
       <div>
-      <h3 className="title">Gmail Analysis - {today} </h3>
       <div className="table-cover">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Social Breakdown</th>
+      <div class="table-title">
+      {/*{today}*/}
+        <h3 className="title">Gmail Analysis - 05/55/29390 </h3>
+      </div>
+        <table class="table-fill">
+        <thead>
+        <tr>
+        <th className="text-left" colSpan="2">Social Breakdown</th>
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+          <tr>
+          {/*{peopleButtons}*/}
+          {/*Alyssa, I wasnt sure what this peopluButton is doing.*/}
+            <td><a href="#" onClick={this.chooseUser}>John 20%</a></td>
+            <td><a href="#">Doe Bier 80%</a></td>
             </tr>
-          </thead>
-          <tbody>
             <tr>
-              {peopleButtons}
+            <td><a href="#">Jake Anis 80%</a></td>
+            <td><a href="#">Doe Foo 40%</a></td>
             </tr>
-          </tbody>
+            <tr>
+            <td><a href="#">Chilly Pepper 10%</a></td>
+            <td><a href="#">billy Silly 90%</a></td>
+            </tr>
+        </tbody>
         </table>
-        </div>
+      </div>
         <br/>
         <br/>
         {this.showUserDetails()}
       </div>
     );
   }
-
 
 });
 
