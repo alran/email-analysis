@@ -6,6 +6,7 @@ class AnalysesController < ApplicationController
     @people = {}
     emails.each do |email|
       recipient = email.sent_to.gsub(/<.+>/, '').strip
+      recipient_email = email.sent_to
       sentiment = email.sentiment
       if email.sentiment_score
         sentiment_score = email.sentiment_score
@@ -18,6 +19,7 @@ class AnalysesController < ApplicationController
       elsif recipient != ""
         @people[recipient] = {
           name: recipient,
+          email: recipient_email,
           sentiment: sentiment,
           sentiment_score: sentiment_score,
           num_scores: 1
@@ -26,31 +28,28 @@ class AnalysesController < ApplicationController
     end
     analysis.people_sentiment = @people.to_s
     analysis.save
-    binding.pry
     @people = @people.to_json
   end
 
   def watson
     @analyses = []
-    receiver = # prop sent from front end - clicked by user
-    emails = Email.where(sent_to: receiver)
-      # choose 20 most recent emails and make call to watson_tone_analysis(content)
-    email_content = emails.map { |email| email.content }
-      # create watson objects for each - push into analyses call
-    watson_tone_analysis(email_content)
+    receiver = response.request.params[:email]
+    emails = Email.where(user_id: current_user.id, sent_to: receiver)
+    emails.each do |email|
+      @analyses << watson_tone_analysis(email.content)
+    end
+    binding.pry
   end
 
   private
 
   def watson_tone_analysis(contents)
-    contents.each do |content|
-      analysis = get_watson_tone_analysis(content) # analysis also has sentence by sentence breakdown. can be used later
-      binding.pry
-      document_emotions = analysis["document_tone"]["tone_categories"][0]
-      document_tone = analysis["document_tone"]["tone_categories"][1]
-      document_behavior_traits = analysis["document_tone"]["tone_categories"][2]
-      number_sentences = analysis["sentences_tone"].length
-    end
+    analysis = get_watson_tone_analysis(content) # analysis also has sentence by sentence breakdown. can be used later
+    document_emotions = analysis["document_tone"]["tone_categories"][0]
+    document_tone = analysis["document_tone"]["tone_categories"][1]
+    document_behavior_traits = analysis["document_tone"]["tone_categories"][2]
+    number_sentences = analysis["sentences_tone"].length
+    {document_emotions: document_emotions, document_tone: document_tone, document_behavior_traits: document_behavior_traits, number_sentences: number_sentences}
   end
 
   def get_watson_tone_analysis(content)

@@ -9,18 +9,34 @@ var Analysis = React.createClass({
       chosenUser: user
     })
   },
-  clinkLink: function(){
-    this.setState({
-      clicked: false
-    })
+  handleSubmit: function(e){
+    e.preventDefault();
+    var url = '/analyses'
+    debugger;
+    var content = this.state.chosenUser
+    if (!content){
+      return;
+    }
+    $.ajax({
+      url: url,
+      type: 'POST',
+      dataType: 'json',
+      data: content,
+      success: function(response){
+        this.props.onUpdate(response);
+      }.bind(this),
+      error: function(xhr,status,err){
+        //add error handling
+      }.bind(this)
+    });
   },
   showUserDetails: function(){
-    // var user = this.state.chosenUser
-    // var people = JSON.parse(this.props.people)
+    var user = this.state.chosenUser
+    var people = JSON.parse(this.props.people)
     return (
       <div className="analysis_overview">
-        <h2>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h2><br/>
-        <a className="button_message button_email" href="analyses/get_watson" onClick={this.clinkLink}>Analyze by email </a>
+        <h3>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h3><br/>
+        <a className="button_message button_email" onClick={this.handleSubmit} href="/analyses/watson">Analyze by email </a>
       </div>
     )
   },
@@ -64,11 +80,7 @@ var Analysis = React.createClass({
         <th className="text-center" colSpan="2">Social Breakdown</th>
         </tr>
         </thead>
-<<<<<<< 4b8565d8c582f5feea4fb58ad1d3e9f83b674dab
-        <tbody className="table-hover ">
-=======
         <tbody className="table-hover">
->>>>>>> merge brain's style to analysis.jsx
           <tr>
             {peopleButtons1}
           </tr>
