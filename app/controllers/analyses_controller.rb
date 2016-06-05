@@ -7,10 +7,14 @@ class AnalysesController < ApplicationController
     emails.each do |email|
       recipient = email.sent_to
       sentiment = email.sentiment
-      sentiment_score = email.sentiment_score
+      if email.sentiment_score
+        sentiment_score = email.sentiment_score
+      else
+        sentiment_score = 0
+      end
       if @people[recipient]
-        @people[recipient][sentiment_score] = (@people[recipient][sentiment_score] + sentiment_score) / 2
-        @people[recipient][num_scores] = @people[recipient][num_scores] + 1
+        @people[recipient][:sentiment_score] = (@people[recipient][:sentiment_score] + sentiment_score) / 2
+        @people[recipient][:num_scores] = @people[recipient][:num_scores] + 1
       else
         @people[recipient] = {
           name: recipient,
@@ -23,6 +27,7 @@ class AnalysesController < ApplicationController
     analysis.people_sentiment = @people.to_s
     analysis.save
     @people.to_json
+    p @people
   end
 
   def watson
