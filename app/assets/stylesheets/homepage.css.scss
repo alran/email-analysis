@@ -6,6 +6,19 @@ $light: #EDEFF5;
 body{
   font-family: 'Open Sans', sans-serif;
 }
+#notice_wrapper{
+  width: 100%;
+  position: absolute;
+  background: $highlight;
+  z-index: 999;
+}
+p {
+  color:$white;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 1.5rem 0;
+}
 
 #world{
   background: #111;
