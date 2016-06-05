@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
          :omniauthable
 
   has_many :identities
+  belongs_to :company
 
   before_save :set_user_category
+  before_save :set_user_company
+  before_save :set_user_name
 
   def google_oauth2
     identities.where( :provider => "google_oauth2" ).first
@@ -25,6 +28,14 @@ class User < ActiveRecord::Base
 
   def set_user_category
      self.category ||= "employee"
+  end
+
+  def set_user_name
+     self.name ||= "Alyssa Ransbury"
+  end
+
+  def set_user_company
+     self.company_id ||= Company.first.id
   end
 
 end
