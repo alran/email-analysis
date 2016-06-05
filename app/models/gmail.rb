@@ -19,7 +19,7 @@ include HTTParty
   end
 
   def messages
-    @service.list_user_messages('me',{"q": "in:sent", "max_results": 30})
+    @service.list_user_messages('me',{"q": "in:sent"})
   end
 
   def individual_messages_ids
@@ -28,6 +28,7 @@ include HTTParty
       res = self.individual_message_request(message_thread.id)
       sent_to = self.find_sent_to_user(res)
       content = self.find_email_content(res)
+      next if content.nil?
 
       email = Email.new(user_id: @current_user_id, sent_to: sent_to, sent_by: @current_user_email, content: content, google_id: message_thread.id)
       email.save
