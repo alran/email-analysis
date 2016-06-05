@@ -16,7 +16,6 @@ include HTTParty
 
   def messages
     @service.list_user_messages('me',{"q": "in:sent", "max_results": 3})
-    binding.pry
   end
 
   def individual_messages_ids
