@@ -1,7 +1,7 @@
-<canvas id="world"></canvas>
 
 <% if user_signed_in? %>
   <%= react_component('Homepage', loggedIn: 'true', currentUser: current_user.id) %>
 <% else %>
   <%= react_component('Homepage', loggedIn: 'false') %>
 <% end %>
+<canvas id="world"></canvas>

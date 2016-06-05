@@ -6,7 +6,6 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -26,15 +25,14 @@
 </div><!-- End of Navigation Bar-->
 <% end %>
 
-  <div id='content-container'>
-    <p class="notification" id="notice"><%= notice %></p>
-    <p class="notification" id="alert"><%= alert %></p>
+  <% if alert %>
+  <div id="notice_wrapper">
+    <p class="alert"><%= alert %></p>
   </div>
-
-  <% if notice %>
-  <p class="notice"><%= notice %></p>
-  <% elsif alert %>
-  <p class="alert"><%= alert %></p>
+  <% elsif notice %>
+  <div id="notice_wrapper">
+    <p class="notice"><%= notice %></p>
+  </div>
   <% end %>
   <%= yield %>
 </body>

@@ -11,17 +11,15 @@ var Homepage = React.createClass({
   render: function(){
     if (this.props.loggedIn == 'false'){
       return (
-        <header className='bring-to-front'>
-          <div className="wrapper_wide">
-            <a href="#" id="logo">Nucleus</a>
-            <nav>
-            <h1 className="slogan">Sign up now to see an analysis of your emails.</h1>
-              <ul>
-                <li><a className='google-button' href="/users/auth/google_oauth2">Google +</a></li>
-              </ul>
-            </nav>
-          </div>
-        </header>
+    <div className="wrapper_skinny slogan">
+      <div className="center">
+      <a href="#" className="logo">Empath</a>
+      </div>
+      <h1 className="h1">Sign up now to see an analysis of your emails.</h1>
+      <div className="button_wrapper">
+        <a className='button button_highlight' href="/users/auth/google_oauth2">Google +</a>
+      </div>
+    </div>
       );
     } else {
       var home = '/users/' + this.props.currentUser
