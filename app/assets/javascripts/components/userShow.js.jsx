@@ -3,7 +3,6 @@ var UserShow = React.createClass({
     user = JSON.parse(this.props.user)
     company = JSON.parse(this.props.company)
     analyses = JSON.parse(this.props.analyses)
-    console.log(analyses)
     image = JSON.parse(this.props.image)
     var analysisLinks = analyses.map(function(analysis){
       var link = '/analyses/' + analysis.id

@@ -16,7 +16,7 @@ var Analysis = React.createClass({
       <div className="analysis_overview">
 
         <h2>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h2><br/>
-        <a className="button_message button_email" href="#">Analyze by email </a>
+        <a className="button_message button_email" href="#">Click for Deeper Email Analysis</a>
       </div>
     )
   },
