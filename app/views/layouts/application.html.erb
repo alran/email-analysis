@@ -26,16 +26,12 @@
 </div><!-- End of Navigation Bar-->
 <% end %>
 
-  <div id='content-container'>
-    <p class="notification" id="notice"><%= notice %></p>
-    <p class="notification" id="alert"><%= alert %></p>
-  </div>
-
-  <% if notice %>
+<% if notice %>
   <p class="notice"><%= notice %></p>
-  <% elsif alert %>
+<% elsif alert %>
   <p class="alert"><%= alert %></p>
-  <% end %>
+<% end %>
+
   <%= yield %>
 </body>
 </html>
