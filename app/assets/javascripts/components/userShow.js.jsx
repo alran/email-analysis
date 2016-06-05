@@ -24,7 +24,11 @@ var UserShow = React.createClass({
           </div>
         </div>
       </section>
-
+      <BootstrapTable>
+           <TableHeaderColumn>Product ID</TableHeaderColumn>
+           <TableHeaderColumn >Product Name</TableHeaderColumn>
+           <TableHeaderColumn>Product Price</TableHeaderColumn>
+       </BootstrapTable>
     </div>
     );
   }

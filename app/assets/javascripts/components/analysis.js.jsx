@@ -1,3 +1,4 @@
+
 var Analysis = React.createClass({
   render: function(){
     return (
@@ -32,6 +33,7 @@ var Analysis = React.createClass({
           <a href="#">Alyssa 80%</a><br/>
           <a href="#">Analyze by email </a>
         </section>
+
       </div>
     );
   }
