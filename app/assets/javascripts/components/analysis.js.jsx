@@ -14,6 +14,11 @@ var Analysis = React.createClass({
     //   chosenUser: user
     // })
   },
+  clinkLink: function(){
+    this.setState({
+      clicked: false
+    })
+  },
   showUserDetails: function(){
     console.log('3')
     var user = this.state.chosenUser
@@ -23,7 +28,8 @@ var Analysis = React.createClass({
     return (
       <section>
         <h3>{user.name} - {user.sentiment_score} {user.sentiment}</h3><br/>
-        <a href="#">Analyze by email </a>
+
+        <a className="button_message button_email" href="analyses/get_watson" onClick={this.clinkLink}>Analyze by email </a>
       </section>
     )
   },
@@ -62,7 +68,7 @@ var Analysis = React.createClass({
         {this.showUserDetails()}
 
 
-      </div>
+       </div>
     );
   }
 
