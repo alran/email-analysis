@@ -1,7 +1,8 @@
 class AnalysesController < ApplicationController
 
   def show
-    # @analysis = Analysis.find_by(params)
+    @emails = Email.find_by(user_id: current_user.id)
+    @analysis = Analysis.find_by(params)
   end
 
   def index
