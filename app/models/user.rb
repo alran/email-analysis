@@ -29,15 +29,15 @@ class User < ActiveRecord::Base
   private
 
   def set_user_category
-     self.google_oauth2.category ||= "employee"
+     current_user.google_oauth2.category ||= "employee"
   end
 
   def set_user_name
-     self.google_oauth2.name ||= "Alyssa Ransbury"
+     current_user.google_oauth2.name ||= current_user.google_oauth2.email
   end
 
   def set_user_company
-     self.google_oauth2.company_id ||= Company.first.id
+     current_user.google_oauth2.company_id ||= Company.first.id
   end
 
 end
