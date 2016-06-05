@@ -36,7 +36,7 @@ var Analysis = React.createClass({
     return (
       <div className="analysis_overview">
         <h3>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h3><br/>
-        <a className="button_message button_email" onClick={this.handleSubmit} href="/analyses/watson">Analyze by email </a>
+        <a className="button_message button_email" onClick={this.handleSubmit} href="/analyses/watson">Click for Deeper Email Analysis </a>
       </div>
     )
   },
