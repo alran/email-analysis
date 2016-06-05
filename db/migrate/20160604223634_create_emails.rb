@@ -6,7 +6,7 @@ class CreateEmails < ActiveRecord::Migration
       t.string :google_id
       t.string :sent_by
       t.string :sentiment
-      t.integer :sentiment_score, precision: 7
+      t.decimal :sentiment_score, precision: 7
       t.belongs_to :user, null: false
       t.date :sent_date
       t.timestamps null: false
