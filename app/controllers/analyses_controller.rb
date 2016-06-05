@@ -18,8 +18,9 @@ class AnalysesController < ApplicationController
         }
       end
     end
+    @people.to_json
   end
-  
+
   def watson
     @analyses = []
     # take props sent from front end when you click button to get email analysis

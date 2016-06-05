@@ -1,6 +1,6 @@
-
 var Analysis = React.createClass({
   render: function(){
+    var people = JSON.parse(this.props.people)
     return (
       <div>
       <h3 className="title">Gmail Analysis - 6/17/2020 </h3>
