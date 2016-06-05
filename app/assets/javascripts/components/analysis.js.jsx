@@ -49,7 +49,16 @@ var Analysis = React.createClass({
         </div>
         <br/>
         <br/>
+        <section>
+          <a href="#">Alyssa 80%</a><br/>
+          <a href="#">Analyze by email </a>
+        </section>
+        <ul>
+          <li><a className='google-button' href="/users/auth/google_oauth2">Google +</a></li>
+        </ul>
+
         {this.showUserDetails}
+
 
       </div>
     );
