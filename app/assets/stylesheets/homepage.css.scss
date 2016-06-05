@@ -101,3 +101,38 @@ h1 {
     transform: translate(1px, -1px) scale(1.1);
   }
 }
+
+// Navigation
+
+#main_navigation{
+  padding: 1.3em 5%;
+}
+.name {
+  font-weight: 700;
+  font-size: 2em;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border: 2px solid $dark;
+  padding: 1rem;
+  text-decoration: none;
+  float: left;
+}
+
+#main_nav{
+  float: right;
+  padding-top:  1.3rem;
+}
+#main_nav a{
+  color: $dark;
+  text-decoration: none;
+  position: relative;
+  margin: 0 1rem;
+  font-size: 1.4rem;
+  &:hover:after{
+    width: 100%;
+  }
+}
+#main_nav a:after{
+  content: '';
+  position: absolute;;
+}
