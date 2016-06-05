@@ -4,6 +4,12 @@ var UserShow = React.createClass({
     company = JSON.parse(this.props.company)
     analyses = JSON.parse(this.props.analyses)
     image = JSON.parse(this.props.image)
+    var analysisLinks = analyses.map(function(analysis){
+      var link = '/analyses/' + analysis.id
+      return (
+        <li><a href={link}>{analysis.created_at}</a></li>
+      )
+    })
     return (
     <div className="profile">
       <div className="wrapper_skinny">
@@ -18,6 +24,9 @@ var UserShow = React.createClass({
               <a className="button_message button_email" href="/emails/get_emails">Analyze Emails</a>
             </div>
           </li>
+        </ul>
+        <ul>
+          {analysisLinks}
         </ul>
       </div>
     </div>

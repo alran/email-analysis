@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :identities
   has_many :emails
+  has_many :analyses
   belongs_to :company
 
   before_save :set_user_category
@@ -28,15 +29,15 @@ class User < ActiveRecord::Base
   private
 
   def set_user_category
-     self.category ||= "employee"
+     current_user.google_oauth2.category ||= "employee"
   end
 
   def set_user_name
-     self.name ||= "Alyssa Ransbury"
+     current_user.google_oauth2.name ||= current_user.google_oauth2.email
   end
 
   def set_user_company
-     self.company_id ||= Company.first.id
+     current_user.google_oauth2.company_id ||= Company.first.id
   end
 
 end
