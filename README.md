@@ -41,31 +41,31 @@ Users can choose to analyze emails sent to a particular recipient to better unde
 ## Visionaries
 
 #### Brian Beir
-[Github][github]
-[github]: https://github.com/brianbier
-[LinkedIn][linkedIn]
-[linkedIn]: https://www.linkedin.com/in/brianbier
+[Github][github1]
+[github1]: https://github.com/brianbier
+[LinkedIn][linkedIn1]
+[linkedIn1]: https://www.linkedin.com/in/brianbier
 
 #### FJ Collins Jr.
-[Github][github]
-[github]: https://github.com/FJunior225
-[LinkedIn][linkedIn]
-[linkedIn]: https://www.linkedin.com/in/fjcollinsjr
+[Github][github2]
+[github2]: https://github.com/FJunior225
+[LinkedIn][linkedIn2]
+[linkedIn2]: https://www.linkedin.com/in/fjcollinsjr
 
 #### Alyssa Ransbury
-[Github][github]
-[github]: https://github.com/alran
-[LinkedIn][linkedIn]
-[linkedIn]: https://www.linkedin.com/in/alyssaransbury
+[Github][github3]
+[github3]: https://github.com/alran
+[LinkedIn][linkedIn3]
+[linkedIn3]: https://www.linkedin.com/in/alyssaransbury
 
 #### Noah Schutte
-[Github][github]
-[github]: https://github.com/noahschutte
-[LinkedIn][linkedIn]
-[linkedIn]: https://www.linkedin.com/in/noahschutte
+[Github][github4]
+[github4]: https://github.com/noahschutte
+[LinkedIn][linkedIn4]
+[linkedIn4]: https://www.linkedin.com/in/noahschutte
 
 #### Thomas Yancey
-[Github][github]
-[github]: https://github.com/thomas-yancey
-[LinkedIn][linkedIn]
-[linkedIn]: https://www.linkedin.com/in/tomyancey
+[Github][github5]
+[github5]: https://github.com/thomas-yancey
+[LinkedIn][linkedIn5]
+[linkedIn5]: https://www.linkedin.com/in/tomyancey
