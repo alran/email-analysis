@@ -18,7 +18,7 @@ Empath empowers managers and employees to identify patterns that will improve te
 To nurture team building by encouraging healthy communication.
 
 ##Technologies
-Ruby on Rails, React.js, PostgreSQL, HPE APIs, IBM Watson APIs
+Ruby on Rails, React.js, PostgreSQL, HTML5/CSS3, Gmail API, HPE APIs, IBM Watson APIs
 
 ##Features
 
