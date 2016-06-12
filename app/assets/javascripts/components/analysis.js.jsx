@@ -9,33 +9,14 @@ var Analysis = React.createClass({
       chosenUser: user
     })
   },
-  handleSubmit: function(e){
-    e.preventDefault();
-    var url = '/analyses/watson'
-    var content = this.state.chosenUser
-    if (!content){
-      return;
-    }
-    $.ajax({
-      url: url,
-      type: 'POST',
-      dataType: 'json',
-      data: content,
-      success: function(response){
-        this.props.onUpdate(response);
-      }.bind(this),
-      error: function(xhr,status,err){
-        //add error handling
-      }.bind(this)
-    });
-  },
   showUserDetails: function(){
     var user = this.state.chosenUser
     var people = JSON.parse(this.props.people)
+    var url = "/analyses/watson/" + user.email
     return (
       <div className="analysis_overview">
         <h3>{user.name} - {user.sentiment_score} {'(' + user.sentiment + ')'}</h3><br/>
-        <a className="button_message button_email" onClick={this.handleSubmit} href="/analyses/watson">Click for Deeper Email Analysis </a>
+        <a className="button_message button_email" href={url}>Click for Deeper Email Analysis </a>
       </div>
     )
   },
@@ -66,7 +47,6 @@ var Analysis = React.createClass({
       return (<UserButton user={user} chooseUser={self.chooseUser} numRows={numRows} counter={counter} key={counter}></UserButton>)
     })
     var today = new Date().toJSON().slice(0,10)
-    console.log(numRows)
     return (
       <div className="wrapper_skinny">
       <div className="table-cover">
