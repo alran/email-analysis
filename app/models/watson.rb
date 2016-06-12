@@ -2,22 +2,25 @@ class Watson
 
 include HTTParty
 
-  base_uri_sentiment "http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment"
+  base_uri "http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment"
 
   attr_accessor :query
 
   def initialize(venue_params)
     @query = venue_params
-    @query["apikey"] = ENV["HPE_API_KEY"]
+    @query["apikey"] = ENV["WATSON_API_KEY"]
+    @query["outputMode"] = 'json'
   end
 
   def text_request
-    self.class.get("",:query => query)
+    self.class.post("http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment",
+    :query => query,
+    :headers => { "Content-Type" => "application/x-www-form-urlencoded"})
   end
 
   def sentiment_response
     res = text_request
-    res.code == 200 ? res["aggregate"] : false
+    res.code == 200 ? res["docSentiment"]["type"] : false
   end
 
 end
