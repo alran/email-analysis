@@ -2,14 +2,14 @@ class AnalysesController < ApplicationController
 
   def watson
     @analyses = []
-    receiver = response.request.params[:email]
-    emails = Email.where(user_id: current_user.id, sent_to: receiver)
+    @receiver = response.request.params[:email] + "." +  response.request.params["format"]
+    emails = Email.where(user_id: current_user.id, sent_to: @receiver)
     emails.each do |email|
-      content = email.content
-      binding.pry
-      @analyses << watson_tone_analysis(content)
+      content = email.content.gsub(' ', '%20') ## this may not be robust enough
+      analysis = Watson.new({text: content})
+      sentiment = analysis.sentiment_response
+      @analyses << sentiment
     end
-    binding.pry
   end
 
   def show
@@ -53,12 +53,6 @@ class AnalysesController < ApplicationController
     document_behavior_traits = analysis["document_tone"]["tone_categories"][2]
     number_sentences = analysis["sentences_tone"].length
     {document_emotions: document_emotions, document_tone: document_tone, document_behavior_traits: document_behavior_traits, number_sentences: number_sentences}
-  end
-
-  def get_watson_tone_analysis(content)
-    content_webified = content.gsub(' ', '%20')
-    request_url = 'https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=' + content_webified
-    HTTParty.get(request_url)
   end
 
 end
