@@ -6,8 +6,9 @@ class AnalysesController < ApplicationController
     emails = Email.where(user_id: current_user.id, sent_to: @receiver)
     emails.each do |email|
       content = email.content.gsub(' ', '%20') ## this may not be robust enough
-      analysis = Watson.new({text: content}, ENV["WATSON_SENTIMENT_API_KEY"])
-      sentiment = analysis.sentiment_response('sentiment_analysis')
+      analysis = SentimentAnalysis.new({text: content}, ENV["WATSON_SENTIMENT_API_KEY"])
+      binding.pry
+      sentiment = analysis.sentiment_response
       @analyses << sentiment
     end
   end
