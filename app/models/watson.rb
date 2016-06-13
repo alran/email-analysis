@@ -1,4 +1,4 @@
-class Watson
+class WatsonSentiment
 
 include HTTParty
 
@@ -8,7 +8,7 @@ include HTTParty
 
   def initialize(venue_params)
     @query = venue_params
-    @query["apikey"] = ENV["WATSON_API_KEY"]
+    @query["apikey"] = ENV["WATSON_SENTIMENT_API_KEY"]
     @query["outputMode"] = 'json'
   end
 
