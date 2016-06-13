@@ -1,26 +1,29 @@
-class WatsonSentiment
+class Watson
 
 include HTTParty
 
-  base_uri "http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment"
+  APIS = {
+    sentiment_analysis: "http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment"
+  }
 
   attr_accessor :query
 
-  def initialize(venue_params)
+  def initialize(venue_params, api_key)
     @query = venue_params
-    @query["apikey"] = ENV["WATSON_SENTIMENT_API_KEY"]
+    @query["apikey"] = api_key
     @query["outputMode"] = 'json'
   end
 
-  def text_request
-    self.class.post("http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment",
+  def text_request(url)
+    self.class.post(url,
     :query => query,
     :headers => { "Content-Type" => "application/x-www-form-urlencoded"})
   end
 
-  def sentiment_response
-    res = text_request
-    res.code == 200 ? res["docSentiment"]["type"] : false
+  def sentiment_response(api)
+    url = APIS[api.to_sym]
+    res = text_request(url)
+    res.code == 200 ? res["docSentiment"]["type"] : false #specific to sentiment analysis api
   end
 
 end
