@@ -5,15 +5,13 @@ Rails.application.routes.draw do
     get '/users/auth/:provider/upgrade' => 'omniauth_callbacks#upgrade', as: :user_omniauth_upgrade
     get '/users/auth/:provider/setup', :to => 'omniauth_callbacks#setup'
   end
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+
   resources :welcome
   resources :users, only: [:show, :edit, :update]
   root 'welcome#index'
 
   resources :analyses, only: [:show, :index]
-  match "/analyses/watson" => "analyses#watson", :via => :post
+  get '/analyses/watson/:email' => 'analyses#watson'
   resources :emails, only: [:show]
-  # post 'welcome#watson_tone_analysis'
 
 end
