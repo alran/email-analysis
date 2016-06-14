@@ -8,7 +8,7 @@ class AnalysesController < ApplicationController
       content = email.content.gsub(' ', '%20') ## this may not be robust enough
       analysis = SentimentAnalysis.new({text: content}, ENV["WATSON_SENTIMENT_API_KEY"])
       binding.pry
-      sentiment = analysis.sentiment_response
+      sentiment = analysis.text_sentiment["docSentiment"]["type"]
       @analyses << sentiment
     end
   end
