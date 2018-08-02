@@ -1,5 +1,5 @@
 # Empath
-###Built for AngelHack Manhattan 2016
+### Built for AngelHack Manhattan 2016
 [Live Link][rails]
 [rails]: http://empath-app.com
 
@@ -17,10 +17,10 @@ Empath empowers managers and employees to identify patterns that will improve te
 ## Our Vision
 To nurture team building by encouraging healthy communication.
 
-##Technologies
+## Technologies
 Ruby on Rails, React.js, PostgreSQL, HTML5/CSS3, Gmail API, HPE APIs, IBM Watson APIs
 
-##Features
+## Features
 
 ### Google+ OmniAuth
 Users can login to the app via their Google+ account. The app grabs their profile image and name, which are displayed on the User Preferences page. The app also requests access to the user's entire email inbox for later analysis.
@@ -40,31 +40,31 @@ Users can choose to analyze emails sent to a particular recipient to better unde
 
 ## Visionaries
 
-#### Brian Beir
+#### Brian
 [Github][github1]
 [github1]: https://github.com/brianbier
 [LinkedIn][linkedIn1]
 [linkedIn1]: https://www.linkedin.com/in/brianbier
 
-#### FJ Collins Jr.
+#### FJ
 [Github][github2]
 [github2]: https://github.com/FJunior225
 [LinkedIn][linkedIn2]
 [linkedIn2]: https://www.linkedin.com/in/fjcollinsjr
 
-#### Alyssa Ransbury
+#### Alyssa
 [Github][github3]
 [github3]: https://github.com/alran
 [LinkedIn][linkedIn3]
 [linkedIn3]: https://www.linkedin.com/in/alyssaransbury
 
-#### Noah Schutte
+#### Noah
 [Github][github4]
 [github4]: https://github.com/noahschutte
 [LinkedIn][linkedIn4]
 [linkedIn4]: https://www.linkedin.com/in/noahschutte
 
-#### Thomas Yancey
+#### Thomas
 [Github][github5]
 [github5]: https://github.com/thomas-yancey
 [LinkedIn][linkedIn5]
